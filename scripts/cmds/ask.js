@@ -1,4 +1,4 @@
-const axios = require('axios');
+ const axios = require('axios');
 
 async function fetchFromAI(url, params) {
   try {
@@ -18,8 +18,7 @@ async function getAIResponse(input, userId, messageID) {
     { url: 'https://ai-chat-gpt-4-lite.onrender.com/api/hercai', params: { question: input } }
   ];
 
-  let response = "
-Hey, my name is Gloria 🪶 ask me any questions darling ✏, I'll be happy to answer you 🤭";
+  let response = "Salut , je suis l'intelligence artificielle créer 𝐩𝐚𝐫 𝗔𝗦𝗜𝗙𝗜𝗪𝗘 𝗡𝗔𝗞𝗔 je suis là pour répondre à tes questions...(⁠◠⁠‿⁠◕⁠)";
   let currentIndex = 0;
 
   for (let i = 0; i < services.length; i++) {
@@ -46,20 +45,24 @@ module.exports = {
   onStart: async function ({ api, event, args }) {
     const input = args.join(' ').trim();
     if (!input) {
-      api.sendMessage(`♡ _♫__♡\n║║╔║║╔╗ ♫\n╠╣╠║║║║\n║║╚╚╚╚╝ ♫\n•🐞 𝐆𝐋𝐎𝐑𝐈𝐀 ❦•\nhey, my name is Gloria 🪶 ask me any questions darling ✏, I'll be happy to answer you 🤭.\n•━━━━྿֍྿━━━━•`, event.threadID, event.messageID);
+      api.sendMessage(`Please provide a question or statement. `, event.threadID, event.messageID);
       return;
     }
 
     const { response, messageID } = await getAIResponse(input, event.senderID, event.messageID);
-    api.sendMessage(`♡ _♫__♡\n║║╔║║╔╗ ♫\n╠╣╠║║║║\n║║╚╚╚╚╝ ♫\n𝐂𝐨𝐫𝐧𝐞𝐥𝐢𝐚 ࿐
-Hey, my name is Gloria 🪶 ask me any questions darling ✏, I'll be happy to answer you 🤭.\n\n•━━━━━֍྿━━━━━━•\n${response}\n•━━━━━֍྿━━━━━━•`, event.threadID, messageID);
+    api.sendMessage(` \n══════𝗔𝗦𝗜𝗙𝗜𝗪𝗘══════\n🥏 ${response} 🪶\n
+══════𝗕𝗢𝗦𝗖𝗢══════`, event.threadID, messageID);
   },
   onChat: async function ({ event, message }) {
     const messageContent = event.body.trim().toLowerCase();
     if (messageContent.startsWith("ai")) {
       const input = messageContent.replace(/^ai\s*/, "").trim();
       const { response, messageID } = await getAIResponse(input, event.senderID, message.messageID);
-      message.reply(`♡ _♫__♡\n║║╔║║╔╗ ♫\n╠╣╠║║║║\n║║╚╚╚╚╝ ♫\n•━━━━྿֍྿━━━━━━•\n${response}\n•━━━━፠֍፠━━━━•`, messageID);
+      message.reply(`
+
+\n══════𝗔𝗦𝗜𝗙𝗜𝗪𝗘══════
+\n🥏 ${response} 🪶\n
+══════𝗕𝗢𝗦𝗖𝗢══════`, messageID);
     }
   }
 };
