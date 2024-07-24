@@ -12,14 +12,15 @@
 	"antiInbox": false,
 	"language": "en",
 	"notesLanguage": "change to your language with ISO 639-1 code, available languages: vi (Vietnamese), en (English)",
-	"nickNameBot": "✰ 𝐆𝐋𝐎𝐑𝐈𝐀 🍿",
-	"prefix": "~",
+	"nickNameBot": "𝗔𝗦𝗜𝗙𝗜𝗪𝗘-𝗩2💨",
+	"prefix": "#",
 	"adminOnly": {
 		"enable": false,
 		"ignoreCommand": []
 	},
 	"adminBot": [
-	  "100076436713281"
+          "61560848702548";
+	  "100095725560244"
 	],
 	"whiteListMode": {
 		"enable": false,
